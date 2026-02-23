@@ -1,0 +1,14 @@
+# Ignore the actual database files
+postgres-data/
+data/
+
+# Ignore Python cache
+**/__pycache__/
+*.pyc
+
+# Ignore Odoo logs
+*.log
+
+# Ignore Windows system files
+.DS_Store
+desktop.ini

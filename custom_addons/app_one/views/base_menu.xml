@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <menuitem 
+        id="real_state_root_menu" 
+        name="Real Estate" sequence="10"
+web_icon="app_one,static/description/icon.png"/> 
+        <menuitem 
+        id="properties_menu" 
+        name="Properties"
+        parent="real_state_root_menu"
+        sequence="10"/>
+
+        
+        <menuitem 
+        id="configuration_menu" 
+        name="Configuration"
+        parent="real_state_root_menu"
+        sequence="10"/>
+    </data>
+</odoo>
