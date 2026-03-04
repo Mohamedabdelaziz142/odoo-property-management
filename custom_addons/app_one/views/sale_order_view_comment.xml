@@ -1,0 +1,6 @@
+  <!-- This XML file defines a view for the sale order form,
+   inheriting from the existing sale order form view and adding custom fields or modifications as needed.
+   
+        <field name="partner_id" position="after">
+            <field name="property_id"/>
+        </field> -->

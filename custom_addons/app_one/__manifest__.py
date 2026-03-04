@@ -7,13 +7,19 @@
     'website': 'https://example.com',
     'category': 'Tools',
     'license': 'LGPL-3',
-    'depends': ['base'],
+    'depends': [
+              'base', 
+                'sale_management',    # Adds Sales features
+                'account', # Adds Invoicing/Accounting features
+                'mail',    # Adds Messaging features
+                            ],
     'data': [
         'security/ir.model.access.csv',
         'views/base_menu.xml',
         'views/property_view.xml',
         'views/owner_view.xml',
         'views/tag_view.xml',
+        'views/sale_order_view.xml',
     ],
     'assets': {
         'web.assets_backend': [

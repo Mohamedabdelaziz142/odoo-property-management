@@ -1,7 +1,7 @@
 <odoo>
     <record id="owner_view_tree" model="ir.ui.view">
         <field name="name">owner tree</field>
-        <field name="model">owner</field>
+        <field name="model">app_one.owner</field>
         <field name="arch" type="xml">
             <tree>
                         <field name="name"/>
@@ -14,7 +14,7 @@
 
   <record id="owner_form_view" model="ir.ui.view">
     <field name="name">owner form</field>
-    <field name="model">owner</field>
+    <field name="model">app_one.owner</field>
     <field name="arch" type="xml">
         <form>
             <sheet>
@@ -43,7 +43,7 @@
 
     <record id="owner_action" model="ir.actions.act_window">
         <field name="name">Owners</field>
-        <field name="res_model">owner</field>
+        <field name="res_model">app_one.owner</field>
         <field name="view_mode">tree,form</field>
     </record>
 
