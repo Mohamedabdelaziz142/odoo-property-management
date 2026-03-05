@@ -34,6 +34,8 @@ class Property(models.Model):
 # relation of many to many with the tag model and the field name is tag_ids which is a list of tags associated with the property,
     tag_ids = fields.Many2many('app_one.tag', string='Tags')
 
+    lines_ids = fields.One2many('property.line', inverse_name= 'property_id')
+
     _sql_constraints = [ ('unique_name', 'unique(name)', 'The name must be unique') ]
 
     state = fields.Selection([
@@ -83,6 +85,16 @@ class Property(models.Model):
             }
         }
 
+
+class PropertyLine(models.Model):
+      _name = 'property.line'
+      
+      area = fields.Float()
+      description = fields.Char()
+      property_id = fields.Many2one('app_one.property')
+
+
+      
     #@api.model_create_multi  
     #def create(self, vals) :
      # res = super(Property, self).create(vals)
