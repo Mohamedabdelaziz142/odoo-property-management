@@ -3,13 +3,15 @@
         <field name="name">property tree</field>
         <field name="model">app_one.property</field>
         <field name="arch" type="xml">
-            <tree class="header_custom">
+            <tree class="header_custom" decoration-danger="is_lated">
                         <field name="name"/>
                         <field name="postcode"/>
                         <field name="owner_id"/>
                         <field name="description"/>
                         <field name="state"/> 
                         <field name="date_available"/>
+                        <field name="expected_selling_date"/>
+                        <field name="is_lated" invisible="1"/>
                         <field name="selling_price"/>
                         <field name="bedrooms"/>
                         <field name="garden" optional="1"/>
@@ -43,6 +45,8 @@
                     <group string="Property Details">
                         <group>
                           <field name="date_available" required="1"/>
+                          <field name="expected_selling_date"/>   
+                          <field name="is_lated" invisible="1"/>
                           <field name="selling_price"/>
                           <field name="expected_price"/>
                           <field name="difference"/>
@@ -109,6 +113,29 @@
         <field name="res_model">app_one.property</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{'search_default_state': 1}</field>
+    </record>
+
+    <record id="property_closed_action" model="ir.actions.server">
+        <field name="name">Close Property</field>
+        <field name="model_id" ref="model_app_one_property"/>
+        <field name="binding_model_id" ref="model_app_one_property"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_closed()
+        </field>
+    </record>
+
+    <record id="check_selling_date_corn" model="ir.cron">
+        <field name="name">Property: Check Selling Date</field>
+        <field name="model_id" ref="model_app_one_property"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="state">code</field>
+        <field name="active" eval="True"/>
+        <field name="code">
+            model.cheack_expected_date()
+        </field>
     </record>
 
     <menuitem 

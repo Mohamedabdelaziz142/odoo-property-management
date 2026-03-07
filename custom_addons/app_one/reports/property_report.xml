@@ -1,0 +1,89 @@
+<odoo>
+    <record id="action_property_report" model="ir.actions.report">
+        <field name="name">Property Report</field>
+        <field name="model">app_one.property</field>
+        <field name="report_type">qweb-pdf</field> <field name="report_name">app_one.property_report_template</field>
+        <field name="report_file">app_one.property_report_template</field>
+        <field name="binding_model_id" ref="model_app_one_property"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="property_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style>
+                            .report_table {
+                                width: 100%;
+                                border: 1px solid #b3adad;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                                margin-bottom: 20px;
+                            }
+                            .report_table th {
+                                background: #f0f0f0;
+                                border: 1px solid #b3adad;
+                                padding: 8px;
+                            }
+                            .report_table td {
+                                border: 1px solid #b3adad;
+                                padding: 8px;
+                                text-align: left;
+                            }
+                        </style>
+
+                        <h1>Property Report: <span t-field="doc.name"/></h1>
+
+                        <table class="report_table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Property Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Postcode:</strong></td>
+                                    <td><span t-field="doc.postcode"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Description:</strong></td>
+                                    <td><span t-field="doc.description"/></td>
+                                </tr>
+                                <tr style="background-color: #f9f9f9;">
+                                    <td colspan="2" class="text-center"><strong>Owner Information</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Owner:</strong></td>
+                                    <td><span t-field="doc.owner_id"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Owner Phone:</strong></td>
+                                    <td><span t-field="doc.owner_phone"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Area Breakdown</h3>
+                        <table class="report_table">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Area (m2)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.lines_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.description"/></td>
+                                        <td><span t-field="line.area"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
