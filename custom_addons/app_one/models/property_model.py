@@ -38,6 +38,8 @@ class Property(models.Model):
 
     _sql_constraints = [ ('unique_name', 'unique(name)', 'The name must be unique') ]
 
+    active = fields.Boolean(string='Active', default=True)
+
     state = fields.Selection([
         ('draft', 'Draft'),
         ('pending', 'Pending'),

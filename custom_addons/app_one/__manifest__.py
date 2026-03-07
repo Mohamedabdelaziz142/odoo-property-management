@@ -12,7 +12,8 @@
                 'sale_management',    # Adds Sales features
                 'account', # Adds Invoicing/Accounting features
                 'mail',    # Adds Messaging features
-                            ],
+                'contacts', # Adds Contact Management features
+    ],
     'data': [
         'security/ir.model.access.csv',
         'views/base_menu.xml',
@@ -20,6 +21,8 @@
         'views/owner_view.xml',
         'views/tag_view.xml',
         'views/sale_order_view.xml',
+        'views/res_partner_view.xml',
+        'views/building_view.xml',
     ],
     'assets': {
         'web.assets_backend': [

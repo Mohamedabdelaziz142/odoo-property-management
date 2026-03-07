@@ -3,3 +3,4 @@ access_app_property_user,access.app.property.user,model_app_one_property,base.gr
 access_owner,access_owner,model_app_one_owner,base.group_user,1,1,1,1
 access_tag,access_tag,model_app_one_tag,base.group_user,1,1,1,1
 access_property_line,access_property_line,model_property_line,base.group_user,1,1,1,1
+access_building,access_building,model_app_one_building,base.group_user,1,1,1,1
