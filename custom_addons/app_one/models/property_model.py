@@ -65,18 +65,22 @@ class Property(models.Model):
 
     def action_draft(self):
         for rec in self:
+            rec.create_proeprty_history(old_state=rec.state, new_state='draft')
             rec.state = 'draft'
 
     def action_pending(self):
         for rec in self:
+            rec.create_proeprty_history(old_state=rec.state, new_state='pending')
             rec.write({'state': 'pending'})
 
     def action_sold(self):
         for rec in self:
+            rec.create_proeprty_history(old_state=rec.state, new_state='sold')
             rec.state = 'sold'
 
     def action_closed(self):
         for rec in self:
+            rec.create_proeprty_history(old_state=rec.state, new_state='closed')
             rec.state = 'closed'
 
     def check_expected_date(self):
@@ -114,7 +118,15 @@ class Property(models.Model):
         if res.ref == ' New':
             res.ref = self.env['ir.sequence'].next_by_code('property_seq')
         return res
-
+    
+    def create_proeprty_history(self, old_state, new_state):
+        for rec in self:
+            self.env['app_one.property_history'].create({
+                'property_id': rec.id,
+                'user_id': self.env.uid,
+                'old_state': old_state,
+                'new_state': new_state,
+            })
 
 class PropertyLine(models.Model):
     _name = 'property.line'

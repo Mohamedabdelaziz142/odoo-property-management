@@ -30,7 +30,7 @@
             <form>
 
               <header>
-                    <button name="action_draft" string="Set to Draft" type="object" class="btn-primary" invisible="state == 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object" class="btn-primary" invisible="state in ['draft', 'closed']"/>
                     <button name="action_pending" string="Pending" type="object" class="btn-secondary" invisible="state != 'draft'"/>
                     <button name="action_sold" string="Sold" type="object" class="btn-success" invisible="state != 'pending'"/>
                     <field name="state" widget="statusbar" />
@@ -46,31 +46,31 @@
                     
                         <label for="name" class="oe_edit_only"/>
                         <h3>
-                            <field name="name" placeholder="Property Name"/>
+                            <field name="name" readonly="state == 'closed'" placeholder="Property Name"/>
                         </h3>
                      </div>
                     <group string="Property Details">
                         <group>
-                          <field name="date_available" required="1"/>
-                          <field name="expected_selling_date"/>   
+                          <field name="date_available" required="1" readonly="state == 'closed'"/>
+                          <field name="expected_selling_date" readonly="state == 'closed'"/>   
                           <field name="is_lated" invisible="1"/>
-                          <field name="selling_price"/>
-                          <field name="expected_price"/>
-                          <field name="difference"/>
-                          <field name="postcode"/>
-                          <field name="facades"/>
-                          <field name="garden"/>
-                          <field name="bedrooms"/>
+                          <field name="selling_price" readonly="state == 'closed'"/>
+                          <field name="expected_price" readonly="state == 'closed'"/>
+                          <field name="difference" readonly="state == 'closed'"/>
+                          <field name="postcode" readonly="state == 'closed'"/>
+                          <field name="facades" readonly="state == 'closed'"/>
+                          <field name="garden" readonly="state == 'closed'"/>
+                          <field name="bedrooms" readonly="state == 'closed'"/>
                       </group>
                        <group string="Additional Information">                        
-                          <field name="garage"/>  
-                          <field name="owner_id"/>
-                          <field name="owner_address"/>
-                          <field name="owner_phone"/>  
-                          <field name="garden_orientation"/>
+                          <field name="garage" readonly="state == 'closed'"/>  
+                          <field name="owner_id" readonly="state == 'closed'"/>
+                          <field name="owner_address" readonly="state == 'closed'"/>
+                          <field name="owner_phone" readonly="state == 'closed'"/>  
+                          <field name="garden_orientation" readonly="state == 'closed'"/>
                           <field name="active"/>
-                          <field name="garden_area"/>                                                
-                          <field name="tag_ids" widget="many2many_tags"/>
+                          <field name="garden_area" readonly="state == 'closed'"/>                                                
+                          <field name="tag_ids" widget="many2many_tags" readonly="state == 'closed'"/>
                        </group>
                        <group>                       
                          <field name="description" required="1"/>                    
