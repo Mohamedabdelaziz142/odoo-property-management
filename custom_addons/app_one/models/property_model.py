@@ -6,6 +6,7 @@ class Property(models.Model):
     _description = 'Property'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+    ref = fields.Char(default=' New', string='Reference', readonly=True)
     name = fields.Char(string='Name', required=False)
     description = fields.Text(string='Description')
     postcode = fields.Char(string='Postcode', required=False)
@@ -107,6 +108,13 @@ class Property(models.Model):
                     "message": "The selling price must be a positive value.",
                 }
             }
+    @api.model
+    def create(self, vals):
+        res = super(Property, self).create(vals)
+        if res.ref == ' New':
+            res.ref = self.env['ir.sequence'].next_by_code('property_seq')
+        return res
+
 
 class PropertyLine(models.Model):
     _name = 'property.line'
