@@ -5,3 +5,4 @@ access_tag,access_tag,model_app_one_tag,base.group_user,1,1,1,1
 access_property_line,access_property_line,model_property_line,base.group_user,1,1,1,1
 access_building,access_building,model_app_one_building,base.group_user,1,1,1,1
 access_property_history,property.history,model_app_one_property_history,base.group_user,1,1,1,1
+access_change_state,change.state,model_change_state,base.group_user,1,1,1,1

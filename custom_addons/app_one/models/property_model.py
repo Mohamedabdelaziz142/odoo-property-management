@@ -65,22 +65,22 @@ class Property(models.Model):
 
     def action_draft(self):
         for rec in self:
-            rec.create_proeprty_history(old_state=rec.state, new_state='draft')
+            rec.create_property_history(old_state=rec.state, new_state='draft')
             rec.state = 'draft'
 
     def action_pending(self):
         for rec in self:
-            rec.create_proeprty_history(old_state=rec.state, new_state='pending')
+            rec.create_property_history(old_state=rec.state, new_state='pending')
             rec.write({'state': 'pending'})
 
     def action_sold(self):
         for rec in self:
-            rec.create_proeprty_history(old_state=rec.state, new_state='sold')
+            rec.create_property_history(old_state=rec.state, new_state='sold')
             rec.state = 'sold'
 
     def action_closed(self):
         for rec in self:
-            rec.create_proeprty_history(old_state=rec.state, new_state='closed')
+            rec.create_property_history(old_state=rec.state, new_state='closed')
             rec.state = 'closed'
 
     def check_expected_date(self):
@@ -119,15 +119,21 @@ class Property(models.Model):
             res.ref = self.env['ir.sequence'].next_by_code('property_seq')
         return res
     
-    def create_proeprty_history(self, old_state, new_state):
+    def create_property_history(self, old_state, new_state, reason=False):
         for rec in self:
             self.env['app_one.property_history'].create({
                 'property_id': rec.id,
                 'user_id': self.env.uid,
                 'old_state': old_state,
                 'new_state': new_state,
+                'reason': reason or ""
             })
-
+            
+    def action_open_change_state_wizard(self):
+         action = self.env['ir.actions.actions']._for_xml_id('app_one.change_state_wizard_action')
+         action['context'] = {'default_property_id': self.id}
+         return action
+    
 class PropertyLine(models.Model):
     _name = 'property.line'
     _description = 'Property Line' # Added this to avoid the "no _description" warning

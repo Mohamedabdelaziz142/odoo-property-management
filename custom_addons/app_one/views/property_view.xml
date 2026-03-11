@@ -141,9 +141,19 @@
         <field name="state">code</field>
         <field name="active" eval="True"/>
         <field name="code">
-            model.cheack_expected_date()
+            model.check_expected_date()
         </field>
     </record>
+    
+    <record id="change_state_server_action" model="ir.actions.server">
+        <field name="name">Change State</field>
+        <field name="model_id" ref="model_app_one_property"/>
+        <field name="binding_model_id" ref="model_app_one_property"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_open_change_state_wizard()
+        </field>
+     </record>
 
     <menuitem 
     id="property_menu_item" 
