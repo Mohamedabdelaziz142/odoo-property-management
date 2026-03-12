@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
-
+from datetime import timedelta
 class Property(models.Model):
     _name = 'app_one.property'
     _description = 'Property'
@@ -24,7 +24,8 @@ class Property(models.Model):
     garage = fields.Boolean(string='Garage')
     garden = fields.Boolean(string='Garden')
     garden_area = fields.Integer(string='Garden Area (sq ft)') 
-    
+    create_time = fields.Datetime(default=fields.Datetime.now)
+    next_time = fields.Datetime(compute='_compute_next_time', store=True, string='Next Time')
     garden_orientation = fields.Selection([
         ('north', 'North'),
         ('south', 'South'),
@@ -144,6 +145,14 @@ class Property(models.Model):
          action['context'] = {'default_property_id': self.id}
          return action
     
+    @api.depends('create_time')
+    def _compute_next_time(self):
+        for rec in self:
+            if rec.create_time:
+              rec.next_time = rec.create_time + timedelta(hours=6)
+            else :
+                 rec.next_time = False 
+
 class PropertyLine(models.Model):
     _name = 'property.line'
     _description = 'Property Line' # Added this to avoid the "no _description" warning

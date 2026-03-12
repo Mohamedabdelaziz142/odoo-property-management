@@ -52,6 +52,8 @@
                     <group string="Property Details">
                         <group>
                           <field name="date_available" required="1" readonly="state == 'closed'"/>
+                          <field name="create_date" readonly="1"/>
+                          <field name="next_time"/>
                           <field name="expected_selling_date" readonly="state == 'closed'"/>   
                           <field name="is_lated" invisible="1"/>
                           <field name="selling_price" readonly="state == 'closed'"/>
