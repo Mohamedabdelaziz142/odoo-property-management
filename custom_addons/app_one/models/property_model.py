@@ -121,14 +121,24 @@ class Property(models.Model):
     
     def create_property_history(self, old_state, new_state, reason=False):
         for rec in self:
+            # 1. We prepare the lines separately to keep the 'create' dict clean
+            # 2. Added a check 'if rec.line_ids' so we don't try to loop over an empty field
+            history_lines = [
+                (0, 0, {
+                    'description': line.description,
+                    'area': line.area
+                }) for line in rec.lines_ids
+            ] if rec.lines_ids else []
+
             self.env['app_one.property_history'].create({
                 'property_id': rec.id,
-                'user_id': self.env.uid,
+                'user_id': self.env.user.id, # Modern Odoo style
                 'old_state': old_state,
                 'new_state': new_state,
-                'reason': reason or ""
+                'reason': reason or "",
+                'line_ids': history_lines,
             })
-            
+                
     def action_open_change_state_wizard(self):
          action = self.env['ir.actions.actions']._for_xml_id('app_one.change_state_wizard_action')
          action['context'] = {'default_property_id': self.id}
