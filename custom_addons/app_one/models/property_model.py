@@ -152,7 +152,13 @@ class Property(models.Model):
               rec.next_time = rec.create_time + timedelta(hours=6)
             else :
                  rec.next_time = False 
-
+    def open_related_owner(self):
+      action = self.env['ir.actions.actions']._for_xml_id('app_one.owner_action')
+      view_id = self.env.ref('app_one.owner_form_view').id
+      action['res_id'] = self.owner_id.id        
+      action['views'] = [[view_id, 'form']]      
+      return action
+  
 class PropertyLine(models.Model):
     _name = 'property.line'
     _description = 'Property Line' # Added this to avoid the "no _description" warning
