@@ -34,7 +34,7 @@
                             }
                         </style>
 
-                        <h1>Property Report: <span t-field="doc.name"/></h1>
+                        <h1 style="font-family: 'Raleway';">Property Report: <span t-field="doc.name"/></h1>
 
                         <table class="report_table">
                             <thead>

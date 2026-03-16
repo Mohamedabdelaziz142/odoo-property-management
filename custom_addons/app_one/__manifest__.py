@@ -25,6 +25,7 @@
         'views/sale_order_view.xml',
         'views/res_partner_view.xml',
         'views/building_view.xml',
+        'views/account_move_view.xml',
         'views/property_history_view.xml',
         'wizards/change_state_wizard_view.xml',
         'reports/property_report.xml',
@@ -32,7 +33,10 @@
     'assets': {
         'web.assets_backend': [
             'app_one/static/src/property_style.css',
-        ]
+        ],
+        'web.report_assets_common': [
+            'app_one/static/src/fonts.css',        ]
+
     },
     'installable': True,
     'application': True,
