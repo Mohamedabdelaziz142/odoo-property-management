@@ -35,8 +35,9 @@ class Property(models.Model):
 
     # relation of many to one and the related fields of the data coming from the model 
     owner_id = fields.Many2one('app_one.owner', string='Owner')
-    owner_address = fields.Char(related='owner_id.address', readonly=False)
-    owner_phone = fields.Char(related='owner_id.phone', readonly=False)
+  # Updated with explicit strings for better UI and translation
+    owner_address = fields.Char(related='owner_id.address', string='Owner Address', readonly=False)
+    owner_phone = fields.Char(related='owner_id.phone', string='Owner Phone', readonly=False)
 
     # relation of many to many with the tag model and the field name is tag_ids which is a list of tags associated with the property,
     tag_ids = fields.Many2many('app_one.tag', string='Tags')

@@ -1,0 +1,245 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* app_one
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-18 07:54+0000\n"
+"PO-Revision-Date: 2026-03-18 07:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: app_one
+# --- Model: app_one.property ---
+#: model:ir.model,name:app_one.model_app_one_property
+msgid "Property"
+msgstr "عقار"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__ref
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__postcode
+msgid "Postcode"
+msgstr "الرمز البريدي"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__date_available
+msgid "Date Available"
+msgstr "تاريخ التوفر"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__expected_selling_date
+msgid "Expected Selling Date"
+msgstr "تاريخ البيع المتوقع"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__is_lated
+msgid "Is Late"
+msgstr "متأخر"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__expected_price
+msgid "Expected Price"
+msgstr "السعر المتوقع"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__selling_price
+msgid "Selling Price"
+msgstr "سعر البيع"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__difference
+msgid "Difference"
+msgstr "الفرق"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__bedrooms
+msgid "Bedrooms"
+msgstr "غرف النوم"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__living_area
+msgid "Living Area (sq ft)"
+msgstr "مساحة المعيشة (قدم مربع)"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__facades
+msgid "Facades"
+msgstr "الواجهات"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__garage
+msgid "Garage"
+msgstr "جراج"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__garden
+msgid "Garden"
+msgstr "حديقة"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__garden_area
+msgid "Garden Area (sq ft)"
+msgstr "مساحة الحديقة (قدم مربع)"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__garden_orientation
+msgid "Garden Orientation"
+msgstr "اتجاه الحديقة"
+
+#. module: app_one
+#: model:ir.model.fields.selection,name:app_one.selection__app_one_property__garden_orientation__north
+msgid "North"
+msgstr "شمال"
+
+#. module: app_one
+#: model:ir.model.fields.selection,name:app_one.selection__app_one_property__garden_orientation__south
+msgid "South"
+msgstr "جنوب"
+
+#. module: app_one
+#: model:ir.model.fields.selection,name:app_one.selection__app_one_property__garden_orientation__east
+msgid "East"
+msgstr "شرق"
+
+#. module: app_one
+#: model:ir.model.fields.selection,name:app_one.selection__app_one_property__garden_orientation__west
+msgid "West"
+msgstr "غرب"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: app_one
+#: model:ir.model.fields.selection,name:app_one.selection__app_one_property__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: app_one
+#: model:ir.model.fields.selection,name:app_one.selection__app_one_property__state__pending
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+#. module: app_one
+#: model:ir.model.fields.selection,name:app_one.selection__app_one_property__state__sold
+msgid "Sold"
+msgstr "تم البيع"
+
+#. module: app_one
+#: model:ir.model.fields.selection,name:app_one.selection__app_one_property__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: app_one
+# --- Model: app_one.owner ---
+#: model:ir.model,name:app_one.model_app_one_owner
+msgid "Property Owner"
+msgstr "مالك العقار"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_owner__name
+#: model:ir.model.fields,field_description:app_one.field_app_one_tag__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_owner__phone
+msgid "Phone"
+msgstr "رقم الهاتف"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_owner__address
+msgid "Address"
+msgstr "العنوان"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_owner__property_ids
+#: model:ir.model.fields,field_description:app_one.field_app_one_tag__property_ids
+msgid "Properties"
+msgstr "العقارات"
+
+#. module: app_one
+# --- Model: app_one.building ---
+#: model:ir.model,name:app_one.model_app_one_building
+msgid "Building"
+msgstr "مبنى"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_building__no
+msgid "Building Number"
+msgstr "رقم المبنى"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_building__code
+msgid "Address"
+msgstr "العنوان"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_building__name
+msgid "Building Name"
+msgstr "اسم المبنى"
+
+#. module: app_one
+# --- Model: app_one.tag ---
+#: model:ir.model,name:app_one.model_app_one_tag
+msgid "Property Tag"
+msgstr "وسم العقار"
+
+#. module: app_one
+# --- Model: app_one.property_history ---
+#: model:ir.model,name:app_one.model_app_one_property_history
+msgid "Property History"
+msgstr "سجل العقار"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property_history__old_state
+msgid "Old State"
+msgstr "الحالة السابقة"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property_history__new_state
+msgid "New State"
+msgstr "الحالة الجديدة"
+
+#. module: app_one
+# --- Lines and Mixins ---
+#: model:ir.model,name:app_one.model_property_line
+msgid "Property Line"
+msgstr "بند العقار"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_building__active
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__owner_address
+msgid "Owner Address"
+msgstr "عنوان المالك"
+
+#. module: app_one
+#: model:ir.model.fields,field_description:app_one.field_app_one_property__owner_phone
+msgid "Owner Phone"
+msgstr "هاتف المالك"
